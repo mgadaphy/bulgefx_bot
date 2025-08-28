@@ -41,6 +41,8 @@ This bot was created by **Mo Gadaphy**, Founder/CEO of [MOGADONKO AGENCY](https:
 
 ## Usage
 
+### Local Development
+
 1. Start the bot:
    ```bash
    python bulgefx_bot.py
@@ -49,6 +51,24 @@ This bot was created by **Mo Gadaphy**, Founder/CEO of [MOGADONKO AGENCY](https:
 2. Open Telegram and start a conversation with your bot
 
 3. Use `/start` to begin the onboarding flow
+
+### Deploy to Railway.app
+
+1. Fork this repository or push to your own GitHub repository
+
+2. Visit [Railway.app](https://railway.app/) and sign up/login
+
+3. Click "New Project" → "Deploy from GitHub repo"
+
+4. Select your `bulgefx_bot` repository
+
+5. Add environment variable:
+   - Key: `TELEGRAM_BOT_TOKEN`
+   - Value: Your bot token from [@BotFather](https://t.me/botfather)
+
+6. Railway will automatically detect the `Procfile` and deploy your bot
+
+7. Your bot will be running 24/7 on Railway's infrastructure
 
 ## Bot Commands
 
@@ -64,6 +84,15 @@ This bot was created by **Mo Gadaphy**, Founder/CEO of [MOGADONKO AGENCY](https:
    - Educational resources
    - Automated trading bot access
 3. **Account Creation**: Direct users to the BulgeFX website for account creation
+
+## Project Structure
+
+- `bulgefx_bot.py` - Main bot application
+- `requirements.txt` - Python dependencies
+- `.env` - Environment variables (not tracked in git)
+- `.gitignore` - Git ignore rules
+- `Procfile` - Railway.app deployment configuration
+- `README.md` - Project documentation
 
 ## Dependencies
 
