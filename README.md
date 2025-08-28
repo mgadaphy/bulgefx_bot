@@ -52,7 +52,9 @@ This bot was created by **Mo Gadaphy**, Founder/CEO of [MOGADONKO AGENCY](https:
 
 3. Use `/start` to begin the onboarding flow
 
-### Deploy to Railway.app
+### Deploy to Cloud Platforms
+
+#### Railway.app
 
 1. Fork this repository or push to your own GitHub repository
 
@@ -69,6 +71,55 @@ This bot was created by **Mo Gadaphy**, Founder/CEO of [MOGADONKO AGENCY](https:
 6. Railway will automatically detect the `Procfile` and deploy your bot
 
 7. Your bot will be running 24/7 on Railway's infrastructure
+
+#### Render.com
+
+1. Fork this repository or push to your own GitHub repository
+
+2. Visit [Render.com](https://render.com/) and sign up/login
+
+3. Click "New" → "Background Worker"
+
+4. Connect your GitHub repository and select `bulgefx_bot`
+
+5. Configure the service:
+   - **Name**: `bulgefx-bot`
+   - **Environment**: `Python 3`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `python bulgefx_bot.py`
+
+6. Add environment variable:
+   - Key: `TELEGRAM_BOT_TOKEN`
+   - Value: Your bot token from [@BotFather](https://t.me/botfather)
+
+7. Click "Create Background Worker" to deploy
+
+#### PythonAnywhere
+
+1. Sign up for a free account at [PythonAnywhere](https://www.pythonanywhere.com/)
+
+2. Upload your project files to your PythonAnywhere account:
+   - Go to "Files" tab
+   - Upload `bulgefx_bot.py`, `requirements.txt`, and `.env` files
+
+3. Open a Bash console and install dependencies:
+   ```bash
+   pip3.10 install --user -r requirements.txt
+   ```
+
+4. Create a `.env` file with your bot token:
+   ```
+   TELEGRAM_BOT_TOKEN=your_bot_token_here
+   ```
+
+5. Go to "Tasks" tab and create a new task:
+   - **Command**: `python3.10 /home/yourusername/bulgefx_bot.py`
+   - **Hour**: `*` (to run continuously)
+   - **Minute**: `*`
+
+6. Enable the task to start your bot
+
+**Note**: Free PythonAnywhere accounts have limited always-on tasks. Consider upgrading for 24/7 bot operation.
 
 ## Bot Commands
 
