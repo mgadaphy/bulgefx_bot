@@ -121,6 +121,113 @@ This bot was created by **Mo Gadaphy**, Founder/CEO of [MOGADONKO AGENCY](https:
 
 **Note**: Free PythonAnywhere accounts have limited always-on tasks. Consider upgrading for 24/7 bot operation.
 
+#### Heroku (Free Alternative)
+
+1. Sign up for a free account at [Heroku](https://heroku.com/)
+
+2. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+
+3. Login to Heroku via CLI:
+   ```bash
+   heroku login
+   ```
+
+4. Create a new Heroku app:
+   ```bash
+   heroku create your-bulgefx-bot-name
+   ```
+
+5. Set your bot token as an environment variable:
+   ```bash
+   heroku config:set TELEGRAM_BOT_TOKEN=your_bot_token_here
+   ```
+
+6. Deploy your bot:
+   ```bash
+   git push heroku master
+   ```
+
+7. Scale your worker dyno:
+   ```bash
+   heroku ps:scale worker=1
+   ```
+
+**Note**: Heroku offers 550-1000 free dyno hours per month, perfect for small bots.
+
+### Premium Deployment Options
+
+#### DigitalOcean App Platform (Paid)
+
+**Cost**: Starting at $5/month for basic apps
+
+1. Sign up at [DigitalOcean](https://www.digitalocean.com/)
+
+2. Go to "Apps" in the control panel
+
+3. Click "Create App" and connect your GitHub repository
+
+4. Configure your app:
+   - **Name**: `bulgefx-bot`
+   - **Source**: Select your GitHub repository
+   - **Branch**: `master`
+   - **Autodeploy**: Enable for automatic updates
+
+5. Configure the component:
+   - **Type**: Worker
+   - **Run Command**: `python bulgefx_bot.py`
+   - **Instance Count**: 1
+   - **Instance Size**: Basic ($5/month)
+
+6. Add environment variables:
+   - Key: `TELEGRAM_BOT_TOKEN`
+   - Value: Your bot token
+
+7. Review and create the app
+
+**Benefits**: 
+- Automatic scaling
+- Built-in monitoring
+- Easy rollbacks
+- 99.99% uptime SLA
+
+#### AWS Elastic Beanstalk (Paid)
+
+**Cost**: Starting at $10-15/month (t3.micro instance)
+
+1. Sign up for [AWS](https://aws.amazon.com/) and access Elastic Beanstalk
+
+2. Create a new application:
+   - **Application name**: `bulgefx-bot`
+   - **Platform**: Python 3.9
+   - **Application code**: Upload your code as ZIP
+
+3. Create a `requirements.txt` file (already exists)
+
+4. Create an `application.py` file:
+   ```python
+   from bulgefx_bot import main
+   
+   if __name__ == "__main__":
+       main()
+   ```
+
+5. Configure environment variables:
+   - Go to Configuration → Software
+   - Add environment property:
+     - Name: `TELEGRAM_BOT_TOKEN`
+     - Value: Your bot token
+
+6. Deploy the application
+
+7. Configure auto-scaling and monitoring as needed
+
+**Benefits**:
+- Enterprise-grade infrastructure
+- Auto-scaling capabilities
+- Integrated with AWS ecosystem
+- Advanced monitoring and logging
+- Load balancing
+
 ## Bot Commands
 
 - `/start` - Begin your trading journey with BulgeFX
@@ -139,10 +246,11 @@ This bot was created by **Mo Gadaphy**, Founder/CEO of [MOGADONKO AGENCY](https:
 ## Project Structure
 
 - `bulgefx_bot.py` - Main bot application
+- `application.py` - AWS Elastic Beanstalk entry point
 - `requirements.txt` - Python dependencies
 - `.env` - Environment variables (not tracked in git)
 - `.gitignore` - Git ignore rules
-- `Procfile` - Railway.app deployment configuration
+- `Procfile` - Railway.app/Heroku deployment configuration
 - `README.md` - Project documentation
 
 ## Dependencies
