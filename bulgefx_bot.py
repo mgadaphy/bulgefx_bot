@@ -61,7 +61,8 @@ async def handle_start_callback(update: Update, context) -> int:
         if query.data == 'start_now':
             await query.edit_message_text(
                 "Awesome! Click the link below to create your account and claim your deposit bonus:\n\n"
-                "👉 Create Your Account Now: https://bulgefx.com/\n\n"
+                "👉 Create Your Account Now: https://member.bulgefx.com/client/register/6898c2449fdf2\n\n"
+                "💬 Join our Telegram community: https://t.me/bulgefxgroup\n\n"
                 "If you have any questions, just type /help"
             )
             logger.info(f"User {query.from_user.id} clicked 'start_now'")
@@ -93,7 +94,8 @@ async def handle_start_text(update: Update, context) -> int:
         if user_text in ['1', 'yes', 'yep', 'yeah', 'start', 'lets start', "let's start"]:
             await update.message.reply_text(
                 "Awesome! Click the link below to create your account and claim your deposit bonus:\n\n"
-                "👉 Create Your Account Now: https://bulgefx.com/\n\n"
+                "👉 Create Your Account Now: https://member.bulgefx.com/client/register/6898c2449fdf2\n\n"
+                "💬 Join our Telegram community: https://t.me/bulgefxgroup\n\n"
                 "If you have any questions, just type /help"
             )
             logger.info(f"User {update.effective_user.id} chose option 1 via text")
@@ -133,7 +135,8 @@ async def handle_yes_response(update: Update, context) -> int:
         if user_text in ['yes', 'yep', 'yeah', 'y', 'sure', 'ok', 'okay', 'begin']:
             await update.message.reply_text(
                 "Awesome! Click the link below to create your account and claim your deposit bonus:\n\n"
-                "👉 Create Your Account Now: https://bulgefx.com/\n\n"
+                "👉 Create Your Account Now: https://member.bulgefx.com/client/register/6898c2449fdf2\n\n"
+                "💬 Join our Telegram community: https://t.me/bulgefxgroup\n\n"
                 "If you have any questions, just type /help"
             )
             logger.info(f"User {update.effective_user.id} confirmed interest")
@@ -158,7 +161,9 @@ async def help_command(update: Update, context) -> None:
             "About BulgeFX:\n"
             "We offer professional trading services including deposit bonuses, "
             "daily trading signals, educational content, and automated trading solutions.\n\n"
-            "Visit us: https://bulgefx.com/\n\n"
+            "🔗 Quick Links:\n"
+            "👉 Sign Up: https://member.bulgefx.com/client/register/6898c2449fdf2\n"
+            "💬 Telegram Group: https://t.me/bulgefxgroup\n\n"
             "For specific questions about trading or our services, please contact us through our website."
         )
         await update.message.reply_text(help_text)
